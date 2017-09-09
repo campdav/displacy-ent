@@ -2,7 +2,7 @@
     "index": {
         "title": "LANGKAH",
         "description": "Aide l'écrivain: révèle la structure de son texte...",
-        "github": "explosion/langkah-ent",
+        "github": "campdav/langkah-ent",
         "api": "https://api.explosion.ai/langkah/ent/",
 
         "stylesheets": [ "langkah-ent" ],
