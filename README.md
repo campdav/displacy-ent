@@ -1,12 +1,12 @@
 <a href="https://explosion.ai"><img src="https://explosion.ai/assets/img/logo.svg" width="125" height="125" align="right" /></a>
 
-# displaCy ENT: A modern named entity visualiser
+# Langkah ENT: A modern named entity visualiser
 
-Data exploration is an important part of effective named entity recognition because systems often make common unexpected errors that are easily fixed once identified. Despite the apparent simplicity of the task, automatic named entity recognition systems still make many errors, unless trained on examples closely tailored to the use-case. Check out the [demo](https://demos.explosion.ai/displacy-ent) to visualise [spaCy](https://spacy.io)'s guess at the named entities in the document. You can filter the displayed types, to only show the annotations you're interested in.
+Data exploration is an important part of effective named entity recognition because systems often make common unexpected errors that are easily fixed once identified. Despite the apparent simplicity of the task, automatic named entity recognition systems still make many errors, unless trained on examples closely tailored to the use-case. Check out the [demo](https://demos.explosion.ai/langkah-ent) to visualise [spaCy](https://spacy.io)'s guess at the named entities in the document. You can filter the displayed types, to only show the annotations you're interested in.
 
-To read more about displaCy-ent.js, check out the [blog post](https://explosion.ai/blog/displacy-ent-named-entity-visualizer).
+To read more about Langkah-ent.js, check out the [blog post](https://explosion.ai/blog/langkah-ent-named-entity-visualizer).
 
-[![npm](https://img.shields.io/npm/v/displacy-ent.svg)](https://www.npmjs.com/package/displacy-ent)
+[![npm](https://img.shields.io/npm/v/langkah-ent.svg)](https://www.npmjs.com/package/langkah-ent)
 
 ## Run the demo
 
@@ -14,26 +14,26 @@ This demo is implemented in [Jade (aka Pug)](https://www.jade-lang.org), an exte
 
 ```bash
 sudo npm install --global harp
-git clone https://github.com/explosion/displacy-ent
-cd displacy-ent
+git clone https://github.com/explosion/langkah-ent
+cd langkah-ent
 harp server
 ```
 
 The demo is written in ECMAScript 6. For full, cross-browser compatibility, make sure to use a compiler like [Babel](https://github.com/babel/babel). For more info, see this [compatibility table](https://kangax.github.io/compat-table/es6/).
 
-## Using displacy-ent.js
+## Using langkah-ent.js
 
-To use displaCy ENT in your project, include [`displacy-ent.js`](assets/js/displacy-ent.js) from GitHub or via npm:
+To use Langkah ENT in your project, include [`langkah-ent.js`](assets/js/langkah-ent.js) from GitHub or via npm:
 
 ```bash
-npm install displacy-ent
+npm install langkah-ent
 ```
 
 Then initialize a new instance specifying the API and settings:
 
 ```javascript
-const displacy = new displaCyENT('http://localhost:8000', {
-    container: '#displacy',
+const langkah = new LangkahENT('http://localhost:8000', {
+    container: '#langkah',
     defaultText: 'When Sebastian Thrun started working on self-driving cars at Google in 2007, few people outside of the company took him seriously.',
     defaultEnts: ['person', 'org', 'date']
 });
@@ -45,9 +45,9 @@ The following settings are available:
 
 | Setting | Description | Default |
 | --- | --- | --- |
-| **container** | element to display text in, can be any query selector | `#displacy` |
-| **defaultText** | text used if displaCy ENT is run without text specified | `'When Sebastian Thrun started working on self-driving cars at Google in 2007, few people outside of the company took him seriously.'` |
-| **defaultModel** | model used if displaCy ENT is run without model specified | `'en'` |
+| **container** | element to display text in, can be any query selector | `#langkah` |
+| **defaultText** | text used if Langkah ENT is run without text specified | `'When Sebastian Thrun started working on self-driving cars at Google in 2007, few people outside of the company took him seriously.'` |
+| **defaultModel** | model used if Langkah ENT is run without model specified | `'en'` |
 | **defaultEnts** | array of entities highlighted in text | `['person', 'org', 'gpe', 'loc', 'product']` |
 | **onStart** | function to be executed on start of server request | `false` |
 | **onSuccess** | callback function to be executed on successful server response | `false` |
@@ -63,7 +63,7 @@ const text = 'When Sebastian Thrun started working on self-driving cars at Googl
 const model = 'en';
 const ents = ['person', 'org', 'date'];
 
-displacy.parse(text, model, ents);
+langkah.parse(text, model, ents);
 ```
 
 ## Rendering Entities Manually
@@ -75,11 +75,11 @@ const text = 'When Sebastian Thrun started working on self-driving cars at Googl
 const spans = [ { end: 20, start: 5, type: "PERSON" }, { end: 67, start: 61, type: "ORG" }, { end: 75, start: 71, type: "DATE" } ];
 const ents = ['person', 'org', 'gpe', 'loc', 'product'];
 
-displacy.render(text, spans, ents);
+langkah.render(text, spans, ents);
 ```
 ## How it works
 
-displaCy ENT uses only the `<mark>` element with data attributes and custom CSS styling. No additional, visible content or markup is added to your input text and no JavaScript is required to display the entities.
+Langkah ENT uses only the `<mark>` element with data attributes and custom CSS styling. No additional, visible content or markup is added to your input text and no JavaScript is required to display the entities.
 
 Here's an example of the markup:
 

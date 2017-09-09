@@ -1,13 +1,13 @@
 {
     "index": {
-        "title": "displaCy Named Entity Visualizer",
-        "description": "Visualise spaCy's guess at the named entities in the document. You can filter the displayed types, to only show the annotations you're interested in.",
-        "github": "explosion/displacy-ent",
-        "api": "https://api.explosion.ai/displacy/ent/",
+        "title": "LANGKAH",
+        "description": "Aide l'écrivain: révèle la structure de son texte...",
+        "github": "explosion/langkah-ent",
+        "api": "https://api.explosion.ai/langkah/ent/",
 
-        "stylesheets": [ "displacy-ent" ],
+        "stylesheets": [ "langkah-ent" ],
         "scripts": [
-            "displacy-ent",
+            "langkah-ent",
             "main"
         ]
     }

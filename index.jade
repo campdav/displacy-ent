@@ -1,5 +1,5 @@
 //- ----------------------------------
-//- 💥 DEMOS > DISPLACY ENT
+//- LANGKAH
 //- ----------------------------------
 
 include _mixins
@@ -7,27 +7,38 @@ include _mixins
 header.o-banner
     h1.u-heading-1=title
     p.o-block.u-text-medium.
-        Enter your text below to explore spaCy's default entity recognition model. You can use the drop-down menu to select the entity types you're interested in.
+        #[strong Langkah] a pour objectif de vous aider à améliorer vos écrits et chasser les éléments disgracieux (répétitions, etc.)#[br]
+        Entrez votre texte ci-dessous pour analyser sa structure...
 
-    +textarea("Your text here...")#input
+    +textarea("Votre texte...")#input
         +search("large")#submit
 
     .o-form
-        +dropdown("checkbox", "ents", "Entities", { person: "PERSON", norp: "NORP", facility: "FACILITY", org: "ORG", gpe: "GPE", loc: "LOC", product: "PRODUCT", "event": "EVENT", work_of_art: "WORK OF ART", language: "LANGUAGE", date: "DATE", time: "TIME", percent: "PERCENT", money: "MONEY", quantity: "QUANTITY", ordinal: "ORDINAL", cardinal: "CARDINAL" }, [ "person", "org", "gpe", "loc", "product", "date", "time" ])
+        +dropdown("checkbox", "ents", "A vérifier", { repetition: "répetitions", terne: "verbes ternes", passive: "phrases passives", sansverbe: "phrases sans verbe" }, ["repetition", "terne"])
 
-        +dropdown("radio", "model", "Model", { en: "English (v0.101.0)", de: "German (v0.101.0)" }, "en")
+        +dropdown("radio", "model", "Langue", { fr: "Français" }, "fr")
 
-.o-container.u-text-medium.entities#displacy
+.o-container.u-text-medium.entities#langkah
 
 footer.o-banner
-    h2.u-heading-2 Copy markup
+    h2.u-heading-2 A propos
     p.o-block.
-        Here's everything you need to export and style the annotations. We &hearts; web standards!#[br]
+        Langkah est le nom de la planète où se déroule l'histoire #[+a("https://www.wattpad.com/209781762-turba-0-le-prix-d%27une-d%C3%A9couverte") TURBA] (par dcampion). Disponible sur Wattpad.#[br]
+        #[br]
+        #[strong Au fait:]#[br]
+        #[strong -] Le code source de l'annotateur est disponible sur #[+a("http://") Github].
+        #[br]
+        #[strong -] LANGKAH ne s'intéresse pas à vos données. #[strong RIEN] n'est sauvegardé (que ce soit vos textes ou autre chose d'ailleurs).
+        #[br]
+        #[strong -] Langkah est un service livré tel quel : son créateur et l'administrateur du site n'apportent aucune garantie sur sa disponibilité et déclinent toute responsabilité sur :#[br]
+        &nbsp &nbsp &nbsp - le contenu des textes renseignés par les utilisateurs,#[br]
+        &nbsp &nbsp &nbsp - les résultats fournis par le dit service,#[br]
+        &nbsp &nbsp &nbsp - ce que font les utilisateurs de ces résultats (les utilisateurs restent pleinement propriétaires et responsables des textes.).
+        #[br]
+        #[strong -] Utilisez ce service à bon escient, pour faire le bien autour de vous, et écrire de meilleures histoires :)
 
-        #[strong Tip:] Copy-paste this over to #[+a("https://codepen.io") CodePen] for the quickest results.
+//    .o-form
+//        each area in ["HTML", "CSS"]
+//            +textarea(area + " code here...", area).u-code.u-text-small(id=area.toLowerCase())
 
-    .o-form
-        each area in ["HTML", "CSS"]
-            +textarea(area + " code here...", area).u-code.u-text-small(id=area.toLowerCase())
-
-+error("Oops, something went wrong. Please try again!")
++error("Argh, y a un truc qui marche pas. Essaie encore s'il te plait !")

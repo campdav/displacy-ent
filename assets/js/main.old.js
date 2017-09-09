@@ -5,16 +5,16 @@
 'use strict';
 
 {
-    const defaultText = 'La souris est mangée par le chat. \n Les chats sont gourmands.';
+    const defaultText = 'When Sebastian Thrun started working on self-driving cars at Google in 2007, few people outside of the company took him seriously.\n\n“I can tell you very senior CEOs of major American car companies would shake my hand and turn away because I wasn’t worth talking to,” said Thrun, now the co-founder and CEO of online higher education startup Udacity, in an interview with Recode earlier this week.\n\nA little less than a decade later, dozens of self-driving startups have cropped up while automakers around the world clamor, wallet in hand, to secure their place in the fast-moving world of fully automated transportation.';
 
-    const defaultEnts = ['terne', 'repetition' ];
-    const defaultModel = 'fr';
+    const defaultEnts = ['person', 'org', 'gpe', 'loc', 'product', 'date', 'time' ];
+    const defaultModel = 'en';
 
     const loading = () => document.body.classList.toggle('loading');
     const onError = (err) => $('#error').style.display = 'block';
     const updateHTML = () => $('#html').value = `<div class="entities">${$('#langkah').innerHTML}</div>`;
 
-    const langkah = new LangkahENT('http://localhost:8001/annot', {
+    const langkah = new LangkahENT(api, {
         container: '#langkah',
         defaultText: defaultText,
         defaultModel: defaultModel,

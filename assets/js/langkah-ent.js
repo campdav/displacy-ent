@@ -1,17 +1,17 @@
 //- ----------------------------------
-//- 💥 DISPLACY ENT
+//- LANGKAH ENT
 //- ----------------------------------
 
 'use strict';
 
-class displaCyENT {
+class LangkahENT {
     constructor (api, options) {
         this.api = api;
-        this.container = document.querySelector(options.container || '#displacy');
+        this.container = document.querySelector(options.container || '#langkah');
 
-        this.defaultText = options.defaultText || 'When Sebastian Thrun started working on self-driving cars at Google in 2007, few people outside of the company took him seriously.';
-        this.defaultModel = options.defaultModel || 'en';
-        this.defaultEnts = options.defaultEnts || ['person', 'org', 'gpe', 'loc', 'product'];
+        this.defaultText = options.defaultText || 'La souris est mangée par le chat. \n Le chat est gourmand';
+        this.defaultModel = options.defaultModel || 'fr';
+        this.defaultEnts = options.defaultEnts || ['repetition', 'terne'];
 
         this.onStart = options.onStart || false;
         this.onSuccess = options.onSuccess || false;
